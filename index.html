@@ -129,18 +129,18 @@
           </a>
         </div>
 
-        <!-- Desktop / tablet table -->
-        <div class="hidden overflow-hidden rounded-3xl border-2 border-outline/15 bg-white shadow-soft md:block">
+        <!-- Schedule table (same on desktop and mobile; scroll horizontally on small screens) -->
+        <div class="overflow-hidden rounded-3xl border-2 border-outline/15 bg-white shadow-soft">
           <div class="overflow-x-auto">
-            <table class="w-full min-w-[720px] border-collapse text-center text-sm">
+            <table id="orari-table" class="w-full min-w-[720px] border-collapse text-center text-sm">
               <thead>
                 <tr class="bg-outline text-white">
                   <th class="px-3 py-4 font-extrabold">Ora (Nga – Deri)</th>
-                  <th class="px-3 py-4 font-extrabold">E hënë</th>
-                  <th class="px-3 py-4 font-extrabold">E martë</th>
-                  <th class="px-3 py-4 font-extrabold">E mërkurë</th>
-                  <th class="px-3 py-4 font-extrabold">E enjte</th>
-                  <th class="px-3 py-4 font-extrabold">E premte</th>
+                  <th class="px-3 py-4 font-extrabold" data-day="1">E hënë</th>
+                  <th class="px-3 py-4 font-extrabold" data-day="2">E martë</th>
+                  <th class="px-3 py-4 font-extrabold" data-day="3">E mërkurë</th>
+                  <th class="px-3 py-4 font-extrabold" data-day="4">E enjte</th>
+                  <th class="px-3 py-4 font-extrabold" data-day="5">E premte</th>
                 </tr>
               </thead>
               <tbody class="divide-y divide-outline/10">
@@ -202,65 +202,6 @@
               </tbody>
             </table>
           </div>
-        </div>
-
-        <!-- Mobile day cards -->
-        <div class="grid gap-4 md:hidden">
-          <!-- E hënë -->
-          <article class="day-card rounded-3xl border-2 border-outline/15 bg-white p-5 shadow-soft">
-            <h3 class="mb-3 font-display text-xl font-black text-outline">E hënë</h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">I · 13:10</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">II · 14:00</span><span>Matematikë</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">III · 15:00</span><span>Shkathtësi për jetë</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">IV · 15:50</span><span>Gjuhë angleze</span></li>
-              <li class="flex gap-3 text-slate-400"><span class="w-24 shrink-0 font-extrabold">V · 16:40</span><span>I lirë</span></li>
-            </ul>
-          </article>
-          <!-- E martë -->
-          <article class="day-card rounded-3xl border-2 border-outline/15 bg-white p-5 shadow-soft">
-            <h3 class="mb-3 font-display text-xl font-black text-outline">E martë</h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">I · 13:10</span><span>Matematikë</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">II · 14:00</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">III · 15:00</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">IV · 15:50</span><span>Edukatë figurative</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">V · 16:40</span><span>Edukatë fizike, sportet dhe shëndeti</span></li>
-            </ul>
-          </article>
-          <!-- E mërkurë -->
-          <article class="day-card rounded-3xl border-2 border-outline/15 bg-white p-5 shadow-soft">
-            <h3 class="mb-3 font-display text-xl font-black text-outline">E mërkurë</h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">I · 13:10</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">II · 14:00</span><span>Matematikë</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">III · 15:00</span><span>Njeriu dhe natyra</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">IV · 15:50</span><span>Edukatë muzikore</span></li>
-              <li class="flex gap-3 text-slate-400"><span class="w-24 shrink-0 font-extrabold">V · 16:40</span><span>I lirë</span></li>
-            </ul>
-          </article>
-          <!-- E enjte -->
-          <article class="day-card rounded-3xl border-2 border-outline/15 bg-white p-5 shadow-soft">
-            <h3 class="mb-3 font-display text-xl font-black text-outline">E enjte</h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">I · 13:10</span><span>Matematikë</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">II · 14:00</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">III · 15:00</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">IV · 15:50</span><span>Shoqëria dhe mjedisi</span></li>
-              <li class="flex gap-3 text-slate-400"><span class="w-24 shrink-0 font-extrabold">V · 16:40</span><span>I lirë</span></li>
-            </ul>
-          </article>
-          <!-- E premte -->
-          <article class="day-card rounded-3xl border-2 border-outline/15 bg-white p-5 shadow-soft">
-            <h3 class="mb-3 font-display text-xl font-black text-outline">E premte</h3>
-            <ul class="space-y-3 text-sm">
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">I · 13:10</span><span>Gjuhë shqipe</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">II · 14:00</span><span>Matematikë</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">III · 15:00</span><span>Lëndë zgjedhore – Modelim i shkronjave</span></li>
-              <li class="flex gap-3"><span class="w-24 shrink-0 font-extrabold text-outline">IV · 15:50</span><span>Edukatë fizike, sportet dhe shëndeti</span></li>
-              <li class="flex gap-3 text-slate-400"><span class="w-24 shrink-0 font-extrabold">V · 16:40</span><span>I lirë</span></li>
-            </ul>
-          </article>
         </div>
 
         <!-- Preview + download -->

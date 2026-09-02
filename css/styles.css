@@ -31,8 +31,32 @@ body {
   opacity: 0.95;
 }
 
-.day-card {
-  break-inside: avoid;
+/* Today's weekday column in the schedule */
+#orari-table th.is-today {
+  background-color: #f4b942;
+  color: #1d5fb5;
+  box-shadow: inset 0 -3px 0 #1d5fb5;
+}
+
+#orari-table th.is-today .today-label {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d5fb5;
+}
+
+#orari-table td.is-today {
+  background-color: rgba(244, 185, 66, 0.32);
+  font-weight: 700;
+  color: #1d5fb5;
+}
+
+#orari-table td.is-today.text-slate-400 {
+  color: #94a3b8;
+  font-weight: 600;
 }
 
 @media print {

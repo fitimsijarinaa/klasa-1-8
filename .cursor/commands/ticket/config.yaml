@@ -1,0 +1,89 @@
+# Ticket Workflow Configuration
+# Read this file at the start of every ticket command to get current settings.
+
+project:
+  jira_base_url: "https://netformic.atlassian.net/browse/"
+  default_prefix: "REMBEPSW"
+  ticket_pattern: "^[A-Z]+-\\d+$"  # Matches any UPPERCASE-NUMBER format
+
+estimation:
+  hours_per_day: 8
+  min_pd_interval: 0.25
+
+git:
+  base_branch: "origin/develop"
+  branch_pattern: "{TICKET_ID}-{description}"
+
+paths:
+  tickets_folder: "tickets/"
+  mr_draft: "tickets/.mr-draft-{TICKET_ID}.md"
+  dor_result: "tickets/.dor-{TICKET_ID}.md"
+  retro: "tickets/.retro-{TICKET_ID}.md"
+  estimation_history: "tickets/estimation-history.md"  # local only, not in Git
+
+# Ticket Type Keywords
+# Used by /ticket/estimate to detect ticket type and apply appropriate subtask templates.
+ticket_types:
+  bug:
+    keywords_en:
+      - bug
+      - fix
+      - error
+      - broken
+      - "not working"
+      - regression
+      - issue
+    keywords_de:
+      - Fehler
+      - Bugfix
+      - defekt
+      - "funktioniert nicht"
+      - Problem
+      - kaputt
+
+  feature:
+    keywords_en:
+      - add
+      - implement
+      - create
+      - new
+      - enable
+      - feature
+      - "user story"
+    keywords_de:
+      - hinzufügen
+      - implementieren
+      - erstellen
+      - neu
+      - Funktion
+      - Anforderung
+
+  refactoring:
+    keywords_en:
+      - refactor
+      - improve
+      - optimize
+      - "clean up"
+      - "technical debt"
+      - restructure
+    keywords_de:
+      - refaktorieren
+      - verbessern
+      - optimieren
+      - aufräumen
+      - "technische Schulden"
+
+  infrastructure:
+    keywords_en:
+      - setup
+      - install
+      - configure
+      - deploy
+      - environment
+      - infrastructure
+    keywords_de:
+      - einrichten
+      - installieren
+      - konfigurieren
+      - Umgebung
+      - Infrastruktur

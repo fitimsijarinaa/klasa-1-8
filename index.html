@@ -23,64 +23,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            fill: '#82b7f7',
-            outline: '#1d5fb5',
-            soft: '#eef5fd',
-          },
-          fontFamily: {
-            display: ['Nunito', 'system-ui', 'sans-serif'],
-          },
-          boxShadow: {
-            soft: '0 12px 40px -16px rgba(29, 95, 181, 0.35)',
-          },
-        },
-      },
-    };
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: Nunito, system-ui, sans-serif; }
-
-    .hero-num {
-      font-weight: 900;
-      line-height: 0.9;
-      letter-spacing: -0.04em;
-      color: #82b7f7;
-      -webkit-text-stroke: 10px #1d5fb5;
-      paint-order: stroke fill;
-      position: relative;
-    }
-    @media (min-width: 640px) {
-      .hero-num { -webkit-text-stroke: 14px #1d5fb5; }
-    }
-
-    .stitch {
-      position: absolute;
-      inset: 10%;
-      border: 2px dashed #ffffff;
-      border-radius: 1.25rem;
-      pointer-events: none;
-      opacity: 0.95;
-    }
-
-    .day-card { break-inside: avoid; }
-
-    @media print {
-      .no-print { display: none !important; }
-      body { background: white !important; color: black !important; }
-      header, footer, nav { display: none !important; }
-      section { break-inside: avoid; page-break-inside: avoid; padding: 0.5rem 0 !important; }
-      .print-show { display: block !important; }
-      a[href]::after { content: ''; }
-      table { font-size: 11px; }
-    }
-  </style>
+  <script src="js/tailwind.config.js"></script>
 </head>
 <body class="bg-gradient-to-b from-slate-100 via-white to-soft text-slate-800 antialiased">
 
@@ -468,37 +413,6 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      var link = document.getElementById('download-orari');
-      if (!link) return;
-
-      link.addEventListener('click', function (event) {
-        event.preventDefault();
-        var href = link.getAttribute('href');
-        var filename = link.getAttribute('download') || 'orari-klasa-1-8.png';
-
-        fetch(href)
-          .then(function (response) {
-            if (!response.ok) throw new Error('Download failed');
-            return response.blob();
-          })
-          .then(function (blob) {
-            var url = URL.createObjectURL(blob);
-            var temp = document.createElement('a');
-            temp.href = url;
-            temp.download = filename;
-            document.body.appendChild(temp);
-            temp.click();
-            temp.remove();
-            URL.revokeObjectURL(url);
-          })
-          .catch(function () {
-            window.location.href = href;
-          });
-      });
-    })();
-  </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

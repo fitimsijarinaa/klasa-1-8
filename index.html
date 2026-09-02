@@ -123,14 +123,12 @@
           <div class="flex items-center justify-center gap-1 sm:gap-2">
             <div class="relative">
               <span class="hero-num text-[7rem] sm:text-[10rem] md:text-[12rem]">1</span>
-              <span class="stitch"></span>
             </div>
             <div class="relative">
               <span class="hero-num text-[7rem] sm:text-[10rem] md:text-[12rem]">/</span>
             </div>
             <div class="relative">
               <span class="hero-num text-[7rem] sm:text-[10rem] md:text-[12rem]">8</span>
-              <span class="stitch"></span>
             </div>
           </div>
           <!-- Motion ticks -->
@@ -177,6 +175,7 @@
             <p class="mt-2 max-w-2xl text-slate-600">Orari për klasën I/8 · Ndërrimi i pasdites</p>
           </div>
           <a
+            id="download-orari"
             href="assets/orari-klasa-1-8.png"
             download="orari-klasa-1-8.png"
             class="no-print inline-flex items-center justify-center gap-2 self-start rounded-2xl bg-outline px-5 py-3 text-sm font-extrabold text-white shadow-soft transition hover:bg-outline/90"
@@ -388,10 +387,6 @@
             <p class="mt-2 text-sm text-slate-600">1 fletore pa vija</p>
           </article>
         </div>
-
-        <p class="no-print mt-6 text-center text-sm text-slate-500">
-          Këshillë: printoni këtë faqe për ta marrë listën me vete kur blini fletoret.
-        </p>
       </div>
     </section>
 
@@ -460,9 +455,6 @@
           <p><span class="font-extrabold text-outline">Shënim:</span> Për lëndën zgjedhore „Modelim i shkronjave" nuk kërkohet libër mësimor.</p>
         </div>
 
-        <p class="mt-6 text-right text-sm font-semibold text-slate-500">
-          Kryetare aktivi: Ariana Blakaj
-        </p>
       </div>
     </section>
   </main>
@@ -475,6 +467,38 @@
       <p class="text-xs text-slate-400">Viti shkollor 2026/27 · Ndërrimi i pasdites 13:10–17:25</p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var link = document.getElementById('download-orari');
+      if (!link) return;
+
+      link.addEventListener('click', function (event) {
+        event.preventDefault();
+        var href = link.getAttribute('href');
+        var filename = link.getAttribute('download') || 'orari-klasa-1-8.png';
+
+        fetch(href)
+          .then(function (response) {
+            if (!response.ok) throw new Error('Download failed');
+            return response.blob();
+          })
+          .then(function (blob) {
+            var url = URL.createObjectURL(blob);
+            var temp = document.createElement('a');
+            temp.href = url;
+            temp.download = filename;
+            document.body.appendChild(temp);
+            temp.click();
+            temp.remove();
+            URL.revokeObjectURL(url);
+          })
+          .catch(function () {
+            window.location.href = href;
+          });
+      });
+    })();
+  </script>
 
 </body>
 </html>
